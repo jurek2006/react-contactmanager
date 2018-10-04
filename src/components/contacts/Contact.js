@@ -9,10 +9,16 @@ class Contact extends Component {
         showContactInfo: false
     };
 
-    onDeleteClick = (id, dispatch) => {
-        axios
-            .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-            .then(res => dispatch({ type: "DELETE_CONTACT", payload: id }));
+    onDeleteClick = async (id, dispatch) => {
+        // obejście za pomocą try catch tego, że używając jsonplaceholder na serwerze nie jest tworzony tak naprawdę nowy użytkownik, więc url do usunięcia nie będzie działał
+        try {
+            await axios.delete(
+                `https://jsonplaceholder.typicode.com/users/${id}`
+            );
+            dispatch({ type: "DELETE_CONTACT", payload: id });
+        } catch (e) {
+            dispatch({ type: "DELETE_CONTACT", payload: id });
+        }
     };
 
     static propTypes = {
