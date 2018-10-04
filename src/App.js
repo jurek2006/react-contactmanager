@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Contacts from "./components/contacts/Contacts";
 import Header from "./components/layout/Header";
 import AddContacts from "./components/contacts/AddContacts";
+import EditContacts from "./components/contacts/EditContacts";
 import About from "./components/pages/About";
 
 import { Provider } from "./context";
@@ -26,6 +27,11 @@ class App extends Component {
                                     exact
                                     path="/contact/add"
                                     component={AddContacts}
+                                />
+                                <Route
+                                    exact
+                                    path="/contact/edit/:id"
+                                    component={EditContacts}
                                 />
                                 <Route exact path="/about" component={About} />
                                 <Route exact path="/test" component={Test} />
