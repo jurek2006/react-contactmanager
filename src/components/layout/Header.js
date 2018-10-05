@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Header = props => {
     const { branding } = props;
@@ -8,9 +8,9 @@ const Header = props => {
         <div>
             <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0">
                 <div className="container">
-                    <a href="/" className="navbar-brand">
+                    <Link exact to="/" className="navbar-brand">
                         {branding}
-                    </a>
+                    </Link>
                     <div>
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
